@@ -1,7 +1,6 @@
-package com.crud.demo;
+package com.crud.demo.repository;
 
 import com.crud.demo.model.User;
-import com.crud.demo.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
@@ -10,7 +9,7 @@ import org.springframework.boot.jpa.test.autoconfigure.TestEntityManager;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-public class JPAUnitTest {
+public class UserRepositoryTest {
     @Autowired
     TestEntityManager entityManager;
     @Autowired
