@@ -1,6 +1,5 @@
-package com.crud.demo;
+package com.crud.demo.controller;
 
-import com.crud.demo.controller.UserController;
 import com.crud.demo.dto.UserRequestDTO;
 import com.crud.demo.dto.UserResponseDTO;
 import com.crud.demo.infra.ResourceNotFoundException;
@@ -60,7 +59,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("GET /users - Should return status 200 OK and user list")
-    void findAllWhenUsersExistReturnsOkAndUserList() throws Exception {
+    void should_find_all_users_and_return_ok_and_user_list() throws Exception {
         Mockito.when(service.findAll()).thenReturn(List.of(responseDTO));
 
         mockMvc.perform(get("/users")
@@ -72,7 +71,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("GET /users/{id} - Should return 200 OK and the user when id exists")
-    void findByIdWhenIdExistsReturnsOkAndUser() throws Exception {
+    void should_find_by_id_and_returns_ok_and_user() throws Exception {
         Mockito.when(service.findById(1L)).thenReturn(responseDTO);
 
         mockMvc.perform(get("/users/{id}", 1L)
@@ -83,7 +82,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("POST /users - Should return 201 Created and header Location with valid data")
-    void insertWithValidDataReturnsCreated() throws Exception {
+    void should_insert_with_valid_data_and_returns_created() throws Exception {
         Mockito.when(service.insert(any(UserRequestDTO.class))).thenReturn(responseDTO);
 
         String jsonBody = objectMapper.writeValueAsString(requestDTO);
@@ -103,7 +102,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("DELETE /users/{id} - Should return status 204 No Content when delete is successful")
-    void deleteWhenIdExistsReturnNoContent() throws Exception {
+    void should_delete_user_by_id_and_return_no_content() throws Exception {
         Mockito.doNothing().when(service).delete(1L);
 
         mockMvc.perform(delete("/users/{id}", 1L))
@@ -112,7 +111,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("PUT /users/{id} - Should return status 200 OK and the updated user with the valid data")
-    void updateWithValidDataReturnsOkAndUpdatedUser() throws Exception {
+    void should_update_with_valid_data_and_returns_ok_and_updated_user() throws Exception {
         Mockito.when(service.update(eq(1L), any())).thenReturn(responseDTO);
 
         String jsonBody = objectMapper.writeValueAsString(requestDTO);
@@ -127,7 +126,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("GET /users/{id} - Should return status 404 Not Found when ID does not exists")
-    void findByIdWhenIdDoesNotExistAndReturnsNotFound() throws Exception {
+    void should_find_by_id_when_id_does_not_exists_and_return_not_found() throws Exception {
         Mockito.when(service.findById(99L)).thenThrow(new ResourceNotFoundException("Usuário não encontrado"));
 
         mockMvc.perform(get("/users/{id}", 99L)
@@ -137,7 +136,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("DELETE /users/{id} - Should return status 404 Not Found when ID does not exists")
-    void delete_WhenIdDoesNotExist_ReturnsNotFound() throws Exception {
+    void should_delete_when_id_does_not_exists_and_returns_not_found() throws Exception {
         Mockito.doThrow(new ResourceNotFoundException("Usuário não encontrado")).when(service).delete(99L);
 
         mockMvc.perform(delete("/users/{id}", 99L))
