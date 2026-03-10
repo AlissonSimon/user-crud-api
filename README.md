@@ -5,7 +5,7 @@
 [![JUnit5](https://img.shields.io/badge/JUnit5-25A162?style=for-the-badge&logo=junit5&logoColor=white)](https://junit.org/junit5/)
 [![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](https://swagger.io/)
 
-Este repositório contém uma API RESTful completa para gerenciamento de usuários. O objetivo principal do projeto é demonstrar a implementação de um CRUD completo (Create, Read, Update, Delete) seguindo as melhores práticas do ecossistema Spring, com foco na qualidade de software através de **Testes Unitários de Endpoints**.
+Este repositório contém uma API RESTful completa para gerenciamento de usuários. O objetivo principal do projeto é demonstrar a implementação de um CRUD completo (Create, Read, Update, Delete) seguindo as melhores práticas do ecossistema Spring, com foco na qualidade de software através de **Testes Unitários de Endpoints** e **Testes do repositório JPA**.
 
 ## 💻 Tecnologias e Ferramentas Utilizadas
 
